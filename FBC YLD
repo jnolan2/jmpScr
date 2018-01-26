@@ -1,0 +1,32 @@
+
+Close All( Data Tables );
+Close All( Journals );
+Clear Log();
+
+//DATE CRITERIA
+
+::StartDate = "01/01/" || Char( Year( Today() - In Days( 1 ) ) - 1 ); //must be in MM/DD/YYYY format
+::EndDate = Right( "00" || Char( Month( Today() ) ), 2 ) || "/" ||
+Right( "00" || Char( Day( Today() ) ), 2 ) || "/" || Char( Year( Today() ) ); //must be in MM/DD/YYYY format
+
+::BackDate = Format( Informat( ::StartDate ) - In Weeks( 52 ), "m/d/y" );
+
+//SCRAP COST PER TON CONSTANTS
+
+::FBCScrapValue = 278; 
+//from 152 to 220 for 2009
+//from 220 to 245 for 2010
+//from 245 to 255 for 2011
+//from 255 to 269 for 2012
+//from 269 to 262 for 2013
+//from 262 to 270 for 2014
+//from 270 to 272 for 2015
+//from 272 to 300 for 2016
+//from 300 to 278 for 2017
+
+//DSN CONNECTION INFO
+::HIP = "DSN=HIP;UID=dbquery;PWD=dbquery";
+::FSP_PDW = "DSN=FSP PDW";
+::FSP_PDW_ARCHIVE = "DSN=FSP_PDW_ARCHIVE";
+
+//SHORTS INDICATOR
